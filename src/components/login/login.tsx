@@ -14,27 +14,14 @@ export const Login = () => {
 
   const errorMap = {
     mail: [
-      { condition: (mail: string) => !mail.trim(), message: 'El campo de correo electrónico no puede estar vacío.' },
+      { condition: (mail: string) => !mail.trim(), message: 'El campo es obligatorio.' },
       {
         condition: (mail: string) => !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail),
         message: 'Introduzca un correo electrónico válido.',
       },
     ],
     password: [
-      { condition: (password: string) => !password.trim(), message: 'El campo de contraseña es obligatorio.' },
-      { condition: (password: string) => password.length < 8, message: 'La contraseña debe tener al menos 8 caracteres.' },
-      {
-        condition: (password: string) => !/[!@#$%^&*(),.?":{}|<>]/.test(password), // Cambié para validar carácter especial
-        message: 'La contraseña debe contener al menos un carácter especial.',
-      },
-      {
-        condition: (password: string) => !/[0-9]/.test(password),
-        message: 'La contraseña debe contener al menos un número.',
-      },
-      {
-        condition: (password: string) => !/[A-Z]/.test(password),
-        message: 'La contraseña debe contener al menos una letra mayúscula.',
-      },
+      { condition: (password: string) => !password.trim(), message: 'El campo es obligatorio.' },
     ],
   }
   
@@ -61,7 +48,6 @@ export const Login = () => {
       return
     }
     
-    
     try {
       const response = await usuarioService.validarUsuarioLogin({ mail, contrasenia: password })
 
@@ -70,7 +56,6 @@ export const Login = () => {
         sessionStorageService.setItem('userId', response.id.toString())
         navigate('/home'); 
 
-       // sessionStorageService.removeItem('userId')
       } else {
         setErrorMessages({ ...errorMessages, mail: response.message })
       }
@@ -99,7 +84,7 @@ export const Login = () => {
 
     <div className="login-container">
       <label htmlFor="mail" className="login-label">
-        Usuario<span className="login-required">*</span>
+        Usuario<span className="login-required"> *</span>
       </label>
       <div className="login-input-container">
         <input
@@ -115,7 +100,7 @@ export const Login = () => {
 
     <div className="login-container">
       <label htmlFor="contrasenia" className="login-label">
-        Contraseña<span className="login-required">*</span>
+        Contraseña<span className="login-required"> *</span>
       </label>
       <div className="login-input-container">
         <input

@@ -48,14 +48,12 @@
 }
 
 .login-required {
-  color: white;
+  color: var(--color-bordo);
 }
 
 .login-error-message {
   color: var(--color-bordo);
-  font-size: 0.9rem;
-  font-weight: bold;
-  margin-top: 0.3rem;
+  font-size: 1.3rem;
 }
 
 .login-container {
@@ -68,16 +66,6 @@
  
   position: relative;
   width: 100%;
-}
-
-.login-input-container .login-error-message {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  color: var(--color-bordo);
-  font-weight: bolder;
-  font-size: 1rem;
-  margin-top: 0.1rem;
 }
 
 .login-ver-contrasenia {
@@ -97,15 +85,15 @@
   font-size: 1.5rem;
   border: 1px solid var(--color-marron);
   border-radius: 0.5rem;
-  color: var(--color-marron);
+  color: black;
+  /* font-weight: bold; */
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-  
 }
 
 .login-container input:focus {
-  border-color: var(--color-bordo);
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  border-color: black; /* Borde negro */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra negra */
   transform: scale(1.02);
 }
 
