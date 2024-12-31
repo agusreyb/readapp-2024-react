@@ -1,0 +1,72 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.contenido-pagina {
+  top: 0;
+  max-width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.titulos {
+  width: 100%;
+  font-size: 2rem;
+  text-align: left;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 0;
+  line-height: 4rem;
+  position: relative;
+}
+
+.titulos h2 {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.titulos.textoprincipal {
+  width: 90%;
+  font-size: 2rem;
+  text-align: justify;
+  line-height: 3rem;
+}
+
+.titulos.valoraciones {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.titulos.valoraciones img {
+  width: 4rem;
+  height: auto;
+}
+
+.contenido-pagina-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icono-superior-derecha-recomendacion {
+  transition: transform 0.3s ease;
+}
+
+.icono-superior-derecha-recomendacion:hover {
+  transform: scale(1.3);
+}
+
+
+.hr_estilo {
+  margin-top: 5rem;
+  margin-right: auto;
+  margin-left: auto;
+  border: 0;
+  height: 0.3rem;
+  background-color: black;
+  width: 90%;
+}

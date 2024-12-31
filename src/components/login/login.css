@@ -1,0 +1,158 @@
+.login-main-container {
+  width: 100%;
+
+  background: radial-gradient(ellipse, var(--color-beige) 30%, var(--color-marron) 80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: login-color 8s ease-in-out infinite;
+  overflow-y: hidden;
+}
+
+@keyframes login-color {
+  0% { background-size: 100% 100%; }
+  50% { background-size: 200% 200%; }
+  100% { background-size: 100% 100%; }
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 35rem;
+  height: 38rem;
+  padding: 2rem;
+  background-color: transparent;
+  box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.4);
+  min-height: 100vh;
+}
+
+.login-title-logIn {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.login-title-logIn img {
+  width: 4rem;
+  margin-right: 0.5rem;
+}
+
+.login-label {
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.login-required {
+  color: white;
+}
+
+.login-error-message {
+  color: var(--color-bordo);
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: 0.3rem;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.login-input-container {
+ 
+  position: relative;
+  width: 100%;
+}
+
+.login-input-container .login-error-message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: var(--color-bordo);
+  font-weight: bolder;
+  font-size: 1rem;
+  margin-top: 0.1rem;
+}
+
+.login-ver-contrasenia {
+  position: absolute;
+  bottom: 0.7em;
+  right: 0.6em;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+ font-size: 1.3rem;
+}
+
+.login-container input {
+  width: 100%;
+  height: 3.2rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+  font-size: 1.5rem;
+  border: 1px solid var(--color-marron);
+  border-radius: 0.5rem;
+  color: var(--color-marron);
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  
+}
+
+.login-container input:focus {
+  border-color: var(--color-bordo);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  transform: scale(1.02);
+}
+
+.login-input-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.login-input-container:hover::after {
+  opacity: 1;
+}
+
+.login-ver-contrasenia:hover {
+  opacity: 1;
+}
+
+.login-boton-container {
+  display: flex;
+  align-items: center;
+  border-top: 0;
+}
+
+.login-boton-container button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background-color: var(--color-marron);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Baloo Da 2", serif;
+}
+
+.login-boton-container button:active {
+  transform: scale(0.98);
+}
+
+  

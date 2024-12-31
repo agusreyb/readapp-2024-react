@@ -1,0 +1,22 @@
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    background-color: var(--color-marron);
+    bottom: 0;
+    width: 100%;
+    height: 6rem;
+}
+
+.footer-icon {
+    font-size: 2rem;
+    width: 4rem;
+    height: 5rem;
+}
+
+@media screen and (max-width: 400px) {
+    .footer {
+        position: fixed;
+    }
+}

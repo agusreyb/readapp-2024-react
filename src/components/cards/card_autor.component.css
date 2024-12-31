@@ -1,0 +1,56 @@
+.card-autor {
+    display: flex;
+    width: 33rem;
+    height: 10rem;
+    border: 3px solid var(--color-beige-mas-claro);
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: var(--color-beige);
+    box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
+}
+
+
+.card-autor section {
+    width: 100%;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.card-autor header {
+    display: flex;
+    justify-content: space-between;
+    line-height: 2.5rem;
+}
+
+.icono{
+    width: 3rem;
+    height: 2.5rem;
+}
+
+.card-autor button{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+}
+
+.card-autor button:hover{
+    cursor: pointer;
+}
+
+.botones-advertencia {
+    display: flex;
+    align-content: space-between;
+}
+
+.botones-advertencia button{
+    font-size: 1.5rem;
+    color: var(--color-bordo);
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+.cancelar{
+    color:black;
+}

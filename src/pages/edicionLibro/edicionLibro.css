@@ -1,0 +1,69 @@
+
+.titulo-edicion{
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-edicion{
+    width: 100%;
+}
+
+.form-edicion div{
+    width: 100%;
+    font-size : 1rem;
+}
+
+.librosContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.librosContainer h2{
+    font-size: 3rem;
+    font-weight: bold;
+} 
+
+.formatoContenido{
+    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.idiomasGrid{
+    display: grid;
+}
+
+.icono-inferior-derecha {
+    position: absolute;
+    z-index: 900;
+}
+
+.separador{
+    border-top: 1px solid #949090;
+}
+
+.tiporow{
+    display: flex;
+    flex-direction: row;
+}
+
+.h2{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.barra-busqueda img{
+    color: var(--color-marron);
+    line-height: 0.9;
+}
+
+.mensajeError{
+    color: rgb(159, 28, 28);
+    font-size: 1.8em;
+    display: flex;
+    padding: 1rem;
+}

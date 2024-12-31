@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-marron: #785d56;
+  --color-fondo: #eeeeee;
+  --color-beige: #c6b299;
+  --color-clarito: #fff4e3;
+  --color-beige-mas-claro: #e6d5c1;
+  --color-bordo: #be4c54;
+  --fuente-default: "Baloo Da 2", serif;
+  --tamanio-default: 10px;
+  --ancho-default: 966px;
+  --border-default: 1px solid var(--color-marron);
+  --filtro-color-primario: invert(10%) sepia(58%) saturate(2088%) hue-rotate(171deg) brightness(93%) contrast(105%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-family: var(--fuente-default);
+  font-size: var(--tamanio-default);
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-fondo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex.fwrap{
+  flex-wrap: wrap;
+}
+
+.main-page{
+  padding: 10px;
+}
+
+.swal-popup{
+  width: 350px;
+}
+
+.swal-size-title{
+  font-size: 2rem;
+}
+
+.swal-size-title-grande{
+  font-size: 4rem;
+}
+
+.swal-size-text-validation{
+  font-size: 1.65rem;
+}
+
+.swal-size-button{
+  font-size: 1.8rem;
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: initial;
+    display: block;
+    align-items: normal;
+    justify-content: normal;
+    overflow-y: visible;
+  }
+
+  .swal-html-containter{
+    width:95%;
+  }
+}
+
+/*!****** START BOTONES ******!*/
+
+.boton_container {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  justify-content: flex-end;
+
+}
+
+.boton_container button{
+  width: 25%;
+  height: 40px;
+  border-radius: 10px;
+  margin: 1.5rem;
+  box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+.boton_guardar {
+  background-color: var(--color-marron);
+  border: var(--color-marron);
+  color: var(--color-fondo);
+}
+
+
+.boton_cancelar {
+ 
+  background-color: var(--color-fondo);
+  color: rgb(53, 50, 50);
+  border: 1px solid var(--color-marron);
+}
+
+.boton_cancelar:active {
+  background-color: #e7dbdb;
+  transform: scale(0.98);
+}
+
+.boton_guardar:active {
+  background-color: var(--color-beige);
+  transform: scale(0.98);
+}

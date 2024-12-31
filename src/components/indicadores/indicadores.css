@@ -1,0 +1,94 @@
+.main-page{
+  font-size: 20px;
+}
+
+.seccion-indicadores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.seccion-indicadores h2 {
+  font-size: 30px;
+  text-align: left;
+  width: 95%;
+}
+
+.card-indicadores {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-beige-mas-claro);
+  width: 95%;
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon img {
+  width: 60px;
+  height: 60px;
+}
+
+.info-indicadores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.info-indicadores h3 {
+  margin-top:10px;
+  font-size: 50px;
+  color: black;
+  line-height: 1;
+}
+
+.info-indicadores p {
+  color: #666;
+  font-size: 20px;
+}
+  
+.seccion-acciones{
+padding: 10px;
+}
+
+.seccion-acciones h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+  
+.accion-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #785d56;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 20px;
+}
+  
+.accion-button:active {
+  background-color: #c6b299;
+}
+  
+.cargando{
+  color: black;
+}
+

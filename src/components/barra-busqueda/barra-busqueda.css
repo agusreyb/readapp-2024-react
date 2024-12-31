@@ -1,0 +1,22 @@
+.barra-busqueda {
+    width: 98%;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+}
+
+.barra-busqueda input[type="text"] {
+    padding: 0.7rem;
+    font-size: 1.5em;
+    border: 2px solid var(--color-beige);
+    border-radius: 0.4rem;
+    width: 80%;
+}
+
+.barra-busqueda button {
+    background-color: var(--color-clarito);
+    border: 2px solid var(--color-beige);
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
