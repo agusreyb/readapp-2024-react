@@ -1,6 +1,6 @@
 import { useOnInit } from '../../../customHooks/useOnInit.ts'
 import './edicion_autores.css';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Autor } from '../../../domain/Autor.ts'
 import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
 import AutoresService from '../../../services/autoresService.ts'
@@ -9,6 +9,7 @@ import { ErrorResponse, mostrarMensajeError } from '../../../utils/error-handlin
 import LibrosService from '../../../services/librosService.ts'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { CustomTextField } from '../../../components/mui-custom/text-field-custom.tsx'
+import { sessionStorageService } from '../../../services/sessionStorage/sessionStorageService.ts';
 
 
 type ContextType = { setTitulo: React.Dispatch<React.SetStateAction<string>> };
@@ -19,7 +20,14 @@ export const EdicionAutores = () => {
   const { id } = useParams()
   const [idiomasDisponibles, setIdiomasDisponibles] = useState<string[]>([])
   const [errors, setErrors] = useState<{ [key: string]: string }>({})
-  const { setTitulo } = useOutletContext<ContextType>();
+  const { setTitulo } = useOutletContext<ContextType>()
+
+  useEffect(() => {
+    const userId = sessionStorageService.getItem('userId')
+    if (!userId) {
+      navigate('/login')
+    }
+  }, [navigate])
 
   useOnInit(async () => {
     if(+id! == 0 ){

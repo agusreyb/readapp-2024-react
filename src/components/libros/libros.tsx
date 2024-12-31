@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './libros.css'
 import { useOnInit } from '../../customHooks/useOnInit.ts'
 import LibrosService from '../../services/librosService.ts'
@@ -6,13 +6,24 @@ import { Libro } from '../../domain/Libro.ts'
 import { LibroCard } from '../cards/card-libro.component.tsx'
 import { BtnFlotanteMas } from '../mui-custom/btn-flot-mas.tsx'
 import { BarraBusqueda } from '../barra-busqueda/barra-busqueda.tsx'
-import { useOutletContext } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
+import { sessionStorageService } from '../../services/sessionStorage/sessionStorageService.ts'
 
 type ContextType = { setTitulo: React.Dispatch<React.SetStateAction<string>> };
 
 export const Libros = ()  => {
   const [librosTotales, setLibrosTotales] = useState<Libro[]>([])
-  const { setTitulo } = useOutletContext<ContextType>();
+  const { setTitulo } = useOutletContext<ContextType>()
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const userId = sessionStorageService.getItem('userId')
+    if (!userId) {
+      navigate('/login')
+    }
+  }, [navigate])
+
  
   useOnInit(() => {
     setTitulo('Libros')

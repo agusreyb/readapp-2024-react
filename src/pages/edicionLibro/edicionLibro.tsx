@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './edicionLibro.css';
 import { useOnInit } from '../../customHooks/useOnInit.ts'
 import LibrosService from '../../services/librosService.ts'
@@ -6,6 +6,7 @@ import { Libro } from '../../domain/Libro.ts'
 import { PlantillaLibros } from '../../components/libros/plantillaLibros.tsx';
 import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
 import { CircularProgressCustom } from '../../components/mui-custom/circular-progress-custom.tsx';
+import { sessionStorageService } from '../../services/sessionStorage/sessionStorageService.ts';
 
 type ContextType = { setTitulo: React.Dispatch<React.SetStateAction<string>> };
 
@@ -16,7 +17,14 @@ export const EdicionLibros = () => {
   const { id } = useParams()
   const [isLoading, setIsLoading] = useState(true)
 
-  const { setTitulo } = useOutletContext<ContextType>();
+  const { setTitulo } = useOutletContext<ContextType>()
+
+  useEffect(() => {
+    const userId = sessionStorageService.getItem('userId')
+    if (!userId) {
+      navigate('/login')
+    }
+  }, [navigate])
 
   useOnInit(() => {
     if(+id! == 0 ){

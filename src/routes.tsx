@@ -17,7 +17,7 @@ export const ReadappRoutes = () =>
     <Route path="/logout" element={<Logout />} />
 
     <Route element={<Layout  />}>
-      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/home" element={<Indicadores  />} />
       <Route path="/libros" element={<Libros />} />
       <Route path="/autores" element={<BusquedaAutores />} />

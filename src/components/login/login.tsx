@@ -66,15 +66,15 @@ export const Login = () => {
       const response = await usuarioService.validarUsuarioLogin({ mail, contrasenia: password })
 
       if (response && response.id) {
+        sessionStorageService.setItem('authToken', response.token);
         sessionStorageService.setItem('userId', response.id.toString())
         navigate('/home'); 
 
-        sessionStorageService.removeItem('userId')
+       // sessionStorageService.removeItem('userId')
       } else {
         setErrorMessages({ ...errorMessages, mail: response.message })
       }
     } catch (error: unknown) {
-      // Errores del service
       let errorMsg = 'Ha ocurrido un error inesperado.'
 
       if ((error as ErrorResponse).data.message) {

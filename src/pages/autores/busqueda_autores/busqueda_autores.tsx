@@ -1,18 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Autor } from '../../../domain/Autor.ts'
 import { useOnInit } from '../../../customHooks/useOnInit.ts'
 import AutoresService from '../../../services/autoresService.ts'
 import { AutorCard } from '../../../components/cards/card_autor.component.tsx'
 import { BtnFlotanteMas } from '../../../components/mui-custom/btn-flot-mas.tsx'
 import { BarraBusqueda } from '../../../components/barra-busqueda/barra-busqueda.tsx'
-import { useOutletContext } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
+import { sessionStorageService } from '../../../services/sessionStorage/sessionStorageService.ts'
 
 
 type ContextType = { setTitulo: React.Dispatch<React.SetStateAction<string>> };
 
 export const BusquedaAutores = () => {
   const [autores, setAutores] = useState<Autor[]>([])
-  const { setTitulo } = useOutletContext<ContextType>();
+  const { setTitulo } = useOutletContext<ContextType>()
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const userId = sessionStorageService.getItem('userId')
+    if (!userId) {
+      navigate('/login')
+    }
+  }, [navigate])
 
   useOnInit(() => {
     setTitulo("Autores")

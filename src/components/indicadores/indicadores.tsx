@@ -1,18 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './indicadores.css'
 import { useOnInit } from '../../customHooks/useOnInit.ts'
 import IndicadorService from '../../services/indicadoresService/indicadoresServices.ts'
 import { accionConfirmada, confirmarAccion } from '../../components/confirmar-accion/confirmarAccion.ts'
 import { CircularProgressCustom } from '../mui-custom/circular-progress-custom.tsx'
 import { mostrarMensajeError, ErrorResponse, AccionError } from '../../utils/error-handling.tsx'
-import { useOutletContext } from 'react-router-dom'
+import { useNavigate, useOutletContext } from 'react-router-dom'
+import { sessionStorageService } from '../../services/sessionStorage/sessionStorageService.ts'
 
 type ContextType = { setTitulo: React.Dispatch<React.SetStateAction<string>> };
 
 const Indicadores = () => {
   const [indicadores, setIndicadores] = useState<{ [key: string]: number }>({})
   const [loading, setLoading] = useState<boolean>(true)
-  const { setTitulo } = useOutletContext<ContextType>();
+  const { setTitulo } = useOutletContext<ContextType>()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const userId = sessionStorageService.getItem('userId')
+    if (!userId) {
+      navigate('/login')
+    }
+  }, [navigate])
 
   const cargarIndicadores = async () => {
       
