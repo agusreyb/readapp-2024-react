@@ -35,16 +35,10 @@ export const Login = () => {
 
   const handleLogin = async () => {
     const mailError = validacionInput('mail', mail)
-
-    if (mailError) {
-      setErrorMessages({ mail: mailError, password: '' })
-      return;
-    }
-
     const passwordError = validacionInput('password', password)
 
-    if (passwordError) {
-      setErrorMessages({ mail: '', password: passwordError })
+    if (mailError || passwordError) {
+      setErrorMessages({ mail: mailError || '', password: passwordError || '' })
       return
     }
     
@@ -57,21 +51,19 @@ export const Login = () => {
         navigate('/home'); 
 
       } else {
-        setErrorMessages({ ...errorMessages, mail: response.message })
+        setErrorMessages((prevMessages) => ({ ...prevMessages, mail: response.message || 'Error desconocido' }))
       }
     } catch (error: unknown) {
       let errorMsg = 'Ha ocurrido un error inesperado.'
 
-      if ((error as ErrorResponse).data.message) {
-      errorMsg = (error as ErrorResponse).data.message
+      if ((error as ErrorResponse).data?.message) {
+        errorMsg = (error as ErrorResponse).data.message
       } else if (error instanceof Error) {
-      errorMsg = error.message
+        errorMsg = error.message
+      }
+      setErrorMessages({ mail: errorMsg, password: '' });
   }
-
-  setErrorMessages({ mail: errorMsg, password: '' })
-    }
-  
-  };
+};
 
   return (
    <section className="page">
